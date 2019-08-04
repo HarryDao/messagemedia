@@ -1,0 +1,159 @@
+.ImageListItem {
+  width: 25%;
+  margin: 0 0 20px 0;
+  padding: 2%;
+
+  > .image {
+    @include transition();
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    background-color: $white;
+    border: 1px solid $white;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 10px $grey;
+    }
+
+    > .inner {
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+
+      > .image-container {
+        flex: 1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+
+      > .stats {
+        display: flex;
+        margin-top: 15px;
+        
+        > div {
+          color: $grey;
+          font-weight: bold;
+
+          &.left {
+            @extend .text_normal;
+          }
+
+          &.right {
+            flex: 1;
+            text-align: right;
+            @extend .text_small;
+  
+            > span {
+              margin-left: 7px;
+
+              > i {
+                margin-right: 1px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > .user {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+
+    > div {
+      @extend .text_normal;
+      color: $blue;
+      font-weight: bold;
+
+      > img {
+        max-height: $line_normal;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+
+      > i {
+        color: $grey;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 33%;
+    margin-bottom: 10px;
+    padding: 1%;
+
+    > .image {
+      > .inner {
+        top: 10px;
+        bottom: 10px;
+        left: 7px;
+        right: 7px;
+        > .stats {
+          margin-top: 10px;
+          > div {
+            &.left {
+              @include text_small();
+            }
+  
+            &.right {
+              @include text_smaller();
+            }
+          }
+        }
+      }
+    }
+
+    > .user {
+      > div {
+        @include text_small();
+
+        > img {
+          max-height: $line_small;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    width: 50%;
+
+    > .image {
+      > .inner {
+        top: 7px;
+        bottom: 7px;
+        left: 5px;
+        right: 5px;
+        > .stats {
+          margin-top: 5px;
+          > div {
+            &.left {
+              @include text_smaller();
+            }
+  
+            &.right {
+              @include text_smallest();
+            }
+          }
+        }
+      }
+    }
+    > .user {
+      > div {
+        @include text_smaller();
+
+        > img {
+          max-height: $line_smaller;
+        }
+      }
+    }
+  }
+}

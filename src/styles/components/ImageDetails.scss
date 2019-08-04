@@ -1,0 +1,62 @@
+.ImageDetails {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 33;
+  background: $background_grey_transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .close-x {
+    @extend .text_xlarge;
+    @include transition();
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    color: $white;
+
+    &:hover {
+      cursor: pointer;
+      color: $blue;
+    }
+  }
+
+  > .image {
+    background-size: contain;
+    max-height: 80%;
+    max-width: 80%;
+    min-height: 20px;
+    min-width: 20px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center; 
+
+    > img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  
+  @include tablet {
+    > .close-x {
+        @include text_larger();
+        top: 15px;
+        right: 15px;
+    }
+  }
+
+  @include mobile {
+    > .close-x {
+        @include text_large();
+        top: 7px;
+        right: 0px;
+    }
+  }
+}
